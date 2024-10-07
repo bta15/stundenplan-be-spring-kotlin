@@ -1,1 +1,1 @@
-# stundenplan-fe
+# Stundenplan Backend mit Spring und Kotlin
