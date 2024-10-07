@@ -1,0 +1,32 @@
+### alle Schulen
+GET http://localhost:8082/schule
+
+### alle Oberschulen
+#GET http://localhost:8081/schule/bySchulform/Oberschule
+
+### alle Grundschulen
+#GET http://localhost:8081/schule/bySchulform/Grundschule
+#Accept: application/json
+
+### Schule mit einer Schul-ID
+#GET http://localhost:8081/schule/bySchulId/schule_1234
+#Accept: application/json
+
+### eine Schule mit Klasse und Fach hinzufügen
+PUT http://localhost:8082/schule
+Content-Type: application/json
+
+{
+  "schulname": "Meine Schule 5",
+  "schulId": "schule_12345",
+  "schulform": "Grundschule"
+}
+
+
+
+
+### eine Schule löschen
+DELETE http://localhost:8081/schule/schule_1234
+
+### alle Klassen
+GET http://localhost:8081/klasse

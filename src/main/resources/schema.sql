@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS SCHULE (
+    id          INT auto_increment  PRIMARY KEY,
+    SCHULNAME   VARCHAR(60)         NOT NULL,
+    SCHUL_ID    VARCHAR(60)         NOT NULL,
+    SCHULFORM   VARCHAR(60)         NOT NULL
+);

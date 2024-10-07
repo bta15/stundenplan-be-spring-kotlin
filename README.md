@@ -25,7 +25,7 @@ Stundenplan, ungefähr so:
 
 - [ ] Fächer:
     - verfügbar für Klassen: 1-12
-- [x] eine Beispiel-Schule mit allen nötigen Einträgen (siehe POST in beispiel-requests.http)
+- [ ] eine Beispiel-Schule mit allen nötigen Einträgen (siehe POST in beispiel-requests.http)
 
 #### Speicherung der Daten:
 
@@ -41,4 +41,5 @@ Stundenplan, ungefähr so:
     - [ ] Klassenleiter für: Klasse 1-12 (Auswahl an bereits vorhandenen Klassen)
 - [ ] minimale Logik für Stundenplan + Endpoints
 - [ ] CRUD für alles, was nötig ist
-- [x] InMemory-DB
+- [ ] InMemory-DB
+- [ ] ArchUnit?!
