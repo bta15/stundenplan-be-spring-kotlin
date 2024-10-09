@@ -1,8 +1,21 @@
 package de.stundenplan.model
 
-//@Table("KLASSE")
-data class Klasse(
-    val klassenstufe: Int,
-    val bezeichnung: String,
-    val unterrichtsfachList: List<Unterrichtsfach>
+import jakarta.persistence.*
+
+@Entity
+@Table(name = "KLASSE")
+class Klasse(
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    var id: Int?,
+
+    var klassenstufe: Int,
+
+    var bezeichnung: String,
+
+    @ManyToOne
+    @JoinColumn(name = "SCHULE_FK", nullable = false)
+    var schule: Schule
+
+//    val unterrichtsfachList: List<Unterrichtsfach>
 )

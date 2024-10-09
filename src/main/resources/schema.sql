@@ -1,6 +1,15 @@
+CREATE TABLE IF NOT EXISTS KLASSE (
+    ID              INT auto_increment  PRIMARY KEY,
+    KLASSENSTUFE    INT                 NOT NULL,
+    BEZEICHNUNG     VARCHAR(60)         NOT NULL,
+    SCHULE_FK       INT
+);
+
 CREATE TABLE IF NOT EXISTS SCHULE (
-    id          INT auto_increment  PRIMARY KEY,
+    ID          INT auto_increment  PRIMARY KEY,
     SCHULNAME   VARCHAR(60)         NOT NULL,
     SCHUL_ID    VARCHAR(60)         NOT NULL,
     SCHULFORM   VARCHAR(60)         NOT NULL
 );
+
+ALTER TABLE KLASSE ADD FOREIGN KEY (SCHULE_FK) REFERENCES SCHULE(ID)

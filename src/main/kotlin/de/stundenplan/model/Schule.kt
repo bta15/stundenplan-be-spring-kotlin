@@ -1,14 +1,22 @@
 package de.stundenplan.model
 
-import org.springframework.data.annotation.Id
-import org.springframework.data.relational.core.mapping.Table
+import jakarta.persistence.*
 
-@Table("SCHULE")
-data class Schule(
-    @Id val id: Int?,
-    val schulname: String,
-    val schulId: String, //TODO muss unique sein (in DB)
-    val schulform: Schulform,
-//    val klassen: List<Klasse>
+@Entity
+@Table(name = "SCHULE")
+class Schule(
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    var id: Int?,
+
+    var schulname: String,
+
+    var schulId: String, //TODO muss unique sein (in DB)
+
+    @Enumerated(EnumType.STRING)
+    var schulform: Schulform,
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = [CascadeType.ALL], mappedBy = "schule")
+    var klassen: List<Klasse>
 )
 

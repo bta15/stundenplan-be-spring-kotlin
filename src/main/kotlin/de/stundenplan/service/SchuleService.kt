@@ -1,24 +1,45 @@
 package de.stundenplan.service
 
+import de.stundenplan.controller.dto.KlasseDto
+import de.stundenplan.controller.dto.SchuleDto
 import de.stundenplan.model.Schule
+import de.stundenplan.model.Schulform
 import de.stundenplan.repository.SchuleRepository
 import org.springframework.stereotype.Service
-import java.util.*
 
 @Service
 class SchuleService(val schuleRepository: SchuleRepository) {
-    fun findMessages(): List<Schule> = schuleRepository.findAll().toList()
+    fun findSchulen(): List<SchuleDto> {
+        return mapToDto(schuleRepository.findAll().toList())
+    }
 
-    fun findMessageById(id: String): List<Schule> = schuleRepository.findById(id).toList()
+    fun findSchulenBySchulform(schulform: Schulform): List<SchuleDto> {
+        return mapToDto(schuleRepository.findBySchulform(schulform).toList())
+    }
 
-    fun save(message: Schule) {
-        schuleRepository.save(message)
+    fun findSchulenBySchulId(schulId: String): List<SchuleDto> {
+        return mapToDto(schuleRepository.findBySchulId(schulId).toList())
+    }
+
+    fun save(schule: Schule) {
+        schule.klassen.forEach { klasse -> klasse.schule = schule }
+        schuleRepository.save(schule)
     }
 
     fun exists(schulId: String): Boolean {
         return schuleRepository.existsBySchulId(schulId)
     }
 
-    fun <T : Any> Optional<out T>.toList(): List<T> =
-        if (isPresent) listOf(get()) else emptyList()
+    private fun mapToDto(schulen: List<Schule>): List<SchuleDto> {
+        val schuleDtos: MutableList<SchuleDto> = mutableListOf()
+        schulen.forEach { schule ->
+            val klasseDtos: MutableList<KlasseDto> = mutableListOf()
+            schule.klassen.forEach { klasse ->
+                klasseDtos.add(KlasseDto(klasse.klassenstufe, klasse.bezeichnung))
+            }
+            val schuleDto = SchuleDto(schule.schulname, schule.schulId, schule.schulform, klasseDtos)
+            schuleDtos.add(schuleDto)
+        }
+        return schuleDtos
+    }
 }

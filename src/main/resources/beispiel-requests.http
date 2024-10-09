@@ -1,16 +1,11 @@
 ### alle Schulen
 GET http://localhost:8082/schule
 
-### alle Oberschulen
-#GET http://localhost:8081/schule/bySchulform/Oberschule
-
 ### alle Grundschulen
-#GET http://localhost:8081/schule/bySchulform/Grundschule
-#Accept: application/json
+GET http://localhost:8082/schule/bySchulform/Grundschule
 
 ### Schule mit einer Schul-ID
-#GET http://localhost:8081/schule/bySchulId/schule_1234
-#Accept: application/json
+GET http://localhost:8082/schule/bySchulId/schule_000
 
 ### eine Schule mit Klasse und Fach hinzufügen
 PUT http://localhost:8082/schule
@@ -18,8 +13,18 @@ Content-Type: application/json
 
 {
   "schulname": "Meine Schule 5",
-  "schulId": "schule_12345",
-  "schulform": "Grundschule"
+  "schulId": "schule_000",
+  "schulform": "GRUNDSCHULE",
+  "klassen": [
+    {
+      "bezeichnung": "1b",
+      "klassenstufe": 1
+    },
+    {
+      "bezeichnung": "2a",
+      "klassenstufe": 2
+    }
+  ]
 }
 
 
