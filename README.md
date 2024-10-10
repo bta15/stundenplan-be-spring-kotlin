@@ -37,6 +37,7 @@ Stundenplan, ungefähr so:
 #### TODOs
 
 - [x] Liste von Fächern bei Klasse in der DB speichern
+- [ ] Tests
 - [ ] weitere Endpoints
 - [ ] Lehrer:
     - [ ] Fächer (die sie unterrichten könnten)
