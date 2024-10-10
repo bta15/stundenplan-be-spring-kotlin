@@ -7,7 +7,10 @@ Hier entsteht eine stark vereinfachte Stundenplan-API, umgesetzt mit Kotlin und 
 ##### Eingaben:
 - Name der Schule
 - Schulform: Grundschule, Oberschule
-- Klassen: 1-6 oder 7-12 je nach Schulform (konkrete Klassen z.B. 1a, 5b)
+  - Liste von Klassen: 1-6 oder 7-12 je nach Schulform (konkrete Klassen z.B. 1a, 5b)
+    - Liste von Unterricht
+      - Anzahl der Stunden pro Woche
+      - Fach
 
 ##### Ausgabe:
 Stundenplan, ungefähr so:
@@ -25,15 +28,15 @@ Stundenplan, ungefähr so:
 
 - [ ] Fächer:
     - verfügbar für Klassen: 1-12
-- [ ] eine Beispiel-Schule mit allen nötigen Einträgen (siehe POST in beispiel-requests.http)
+- [x] eine Beispiel-Schule mit allen nötigen Einträgen (siehe POST in beispiel-requests.http)
 
 #### Speicherung der Daten:
 
-- eine H2 In-Memory DB
+- eine H2 DB in einer physikalischen Datei im Projektverzeichnis
 
 #### TODOs
 
-- [ ] Liste von Fächern bei Klasse in der DB speichern (siehe TODOs im Code)
+- [x] Liste von Fächern bei Klasse in der DB speichern
 - [ ] weitere Endpoints
 - [ ] Lehrer:
     - [ ] Fächer (die sie unterrichten könnten)
@@ -41,5 +44,5 @@ Stundenplan, ungefähr so:
     - [ ] Klassenleiter für: Klasse 1-12 (Auswahl an bereits vorhandenen Klassen)
 - [ ] minimale Logik für Stundenplan + Endpoints
 - [ ] CRUD für alles, was nötig ist
-- [ ] InMemory-DB
+- [x] H2 File DB
 - [ ] ArchUnit?!

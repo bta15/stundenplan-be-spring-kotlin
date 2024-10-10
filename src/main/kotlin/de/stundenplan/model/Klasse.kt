@@ -15,7 +15,8 @@ class Klasse(
 
     @ManyToOne
     @JoinColumn(name = "SCHULE_FK", nullable = false)
-    var schule: Schule
+    var schule: Schule,
 
-//    val unterrichtsfachList: List<Unterrichtsfach>
+    @OneToMany(fetch = FetchType.LAZY, cascade = [CascadeType.ALL], mappedBy = "klasse")
+    var unterrichtList: List<Unterricht>
 )

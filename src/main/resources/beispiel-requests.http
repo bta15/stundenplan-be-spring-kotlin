@@ -13,25 +13,49 @@ Content-Type: application/json
 
 {
   "schulname": "Meine Schule 5",
-  "schulId": "schule_000",
+  "schulId": "schule_001",
   "schulform": "GRUNDSCHULE",
   "klassen": [
     {
       "bezeichnung": "1b",
-      "klassenstufe": 1
+      "klassenstufe": 1,
+      "unterrichtList": [
+        {
+          "fach": {
+            "bezeichnung": "Deutsch"
+          },
+          "anzahlProWoche": 6
+        },
+        {
+          "fach": {
+            "bezeichnung": "Mathe"
+          },
+          "anzahlProWoche": 5
+        }
+      ]
     },
     {
       "bezeichnung": "2a",
-      "klassenstufe": 2
+      "klassenstufe": 2,
+      "unterrichtList": [
+        {
+          "fach": {
+            "bezeichnung": "Deutsch"
+          },
+          "anzahlProWoche": 4
+        }
+      ]
     }
   ]
 }
 
+### Alle Fächer
+GET http://localhost:8082/fach
 
+### ein Fach hinzufügen
+PUT http://localhost:8082/fach
+Content-Type: application/json
 
-
-### eine Schule löschen
-DELETE http://localhost:8081/schule/schule_1234
-
-### alle Klassen
-GET http://localhost:8081/klasse
+{
+  "bezeichnung": "Sport"
+}

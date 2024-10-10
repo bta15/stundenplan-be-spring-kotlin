@@ -1,7 +1,6 @@
 package de.stundenplan.controller
 
 import de.stundenplan.controller.dto.SchuleDto
-import de.stundenplan.model.Schule
 import de.stundenplan.model.Schulform
 import de.stundenplan.service.SchuleService
 import org.springframework.http.HttpStatus
@@ -26,12 +25,12 @@ class SchuleController(val service: SchuleService) {
     }
 
     @PutMapping
-    fun createSchule(@RequestBody schule: Schule): ResponseEntity<String> {
+    fun createSchule(@RequestBody schule: SchuleDto): ResponseEntity<String> {
 
         if (service.exists(schule.schulId)) {
             return ResponseEntity("Schul-ID existiert bereits", HttpStatus.BAD_REQUEST)
         } else {
-            service.save(schule)
+            service.create(schule)
             return ResponseEntity("Gespeichert", HttpStatus.OK)
         }
     }
