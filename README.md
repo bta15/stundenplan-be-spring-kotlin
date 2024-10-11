@@ -38,6 +38,7 @@ Stundenplan, ungefähr so:
 
 - [x] Liste von Fächern bei Klasse in der DB speichern
 - [ ] Tests
+- [ ] Einfaches Login mit JWT o. ä.
 - [ ] weitere Endpoints
 - [ ] Lehrer:
     - [ ] Fächer (die sie unterrichten könnten)
