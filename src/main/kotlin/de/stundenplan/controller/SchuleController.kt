@@ -26,7 +26,6 @@ class SchuleController(val service: SchuleService) {
 
     @PutMapping
     fun createSchule(@RequestBody schule: SchuleDto): ResponseEntity<String> {
-
         if (service.exists(schule.schulId)) {
             return ResponseEntity("Schul-ID existiert bereits", HttpStatus.BAD_REQUEST)
         } else {
