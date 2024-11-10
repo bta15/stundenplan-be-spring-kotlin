@@ -19,7 +19,7 @@ class FachControllerTest(@Autowired val mockMvc: MockMvc) {
     lateinit var fachService: FachService
 
     @Test
-    fun givenExistingBankAccount_whenGetRequest_thenReturnsBankAccountJsonWithStatus200() {
+    fun getAllFaecher() {
         val fach = FachDto("Englisch")
         every { fachService.findFachList() } returns listOf(fach);
 
