@@ -12,7 +12,7 @@ import java.util.*
 
 class FachServiceTest {
     val fachRepository: FachRepository = mockk()
-    val bankAccountService = FachService(fachRepository)
+    val fachService = FachService(fachRepository)
 
     @Test
     fun createFachOk() {
@@ -21,7 +21,7 @@ class FachServiceTest {
         every { fachRepository.findByBezeichnung("Deutsch") } returns Optional.empty()
         every { fachRepository.save(fach) } returns fach
 
-        bankAccountService.create(FachDto("Deutsch"))
+        fachService.create(FachDto("Deutsch"))
 
         verify(exactly = 1) { fachRepository.findByBezeichnung("Deutsch") }
         verify(exactly = 1) { fachRepository.save(fach) }
@@ -34,7 +34,7 @@ class FachServiceTest {
         every { fachRepository.findByBezeichnung("Deutsch") } returns Optional.of(fach)
 
         try {
-            bankAccountService.create(FachDto("Deutsch"))
+            fachService.create(FachDto("Deutsch"))
         } catch (e: IllegalArgumentException) {
             assertEquals("Fach existiert bereits und konnte nicht gespeichert werden", e.message)
         }
