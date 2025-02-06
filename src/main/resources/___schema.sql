@@ -1,0 +1,67 @@
+-- CREATE TABLE IF NOT EXISTS FACH (
+--     ID                  INT auto_increment  PRIMARY KEY,
+--     BEZEICHNUNG         VARCHAR(60)         NOT NULL
+-- );
+--
+-- ALTER TABLE FACH ADD CONSTRAINT FACH_BEZEICHNUNG_UNIQUE UNIQUE (BEZEICHNUNG);
+--
+-- CREATE TABLE IF NOT EXISTS UNTERRICHT (
+--     ID                  INT auto_increment  PRIMARY KEY,
+--     ANZAHL_PRO_WOCHE    INT,
+--     KLASSE_FK           INT,
+--     FACH_FK             INT
+-- );
+--
+-- CREATE TABLE IF NOT EXISTS KLASSE (
+--     ID              INT auto_increment  PRIMARY KEY,
+--     KLASSENSTUFE    INT                 NOT NULL,
+--     BEZEICHNUNG     VARCHAR(60)         NOT NULL,
+--     SCHULE_FK       INT
+-- );
+--
+-- CREATE TABLE IF NOT EXISTS SCHULE (
+--     ID          INT auto_increment  PRIMARY KEY,
+--     SCHULNAME   VARCHAR(60)         NOT NULL,
+--     SCHUL_ID    VARCHAR(60)         NOT NULL,
+--     SCHULFORM   VARCHAR(60)         NOT NULL
+-- );
+--
+-- ALTER TABLE UNTERRICHT ADD FOREIGN KEY (FACH_FK) REFERENCES FACH(ID);
+-- ALTER TABLE UNTERRICHT ADD FOREIGN KEY (KLASSE_FK) REFERENCES KLASSE(ID);
+-- ALTER TABLE KLASSE ADD FOREIGN KEY (SCHULE_FK) REFERENCES SCHULE(ID);
+--
+-- CREATE TABLE IF NOT EXISTS STUNDENPLAN_TAG (
+--     ID           INT auto_increment  PRIMARY KEY,
+--     WOCHENTAG    VARCHAR(60),
+-- --     liste von unterricht
+-- );
+-- CREATE TABLE StudentClassRelation(
+--                                      StudentID INT(15) NOT NULL,
+--                                      ClassID INT(14) NOT NULL,
+--                                      FOREIGN KEY (StudentID) REFERENCES Student(StudentID),
+--                                      FOREIGN KEY (ClassID) REFERENCES Class(ClassID),
+--                                      UNIQUE (StudentID, ClassID)
+-- );
+--
+-- CREATE TABLE IF NOT EXISTS STUNDENPLAN (
+--     ID                INT auto_increment  PRIMARY KEY,
+--     START_DATE        DATE,
+--     END_DATE          DATE,
+-- --     WT_MONTAG_FK      INT,
+-- --     WT_DIENSTAG_FK    INT,
+-- --     WT_MITTWOCH_FK    INT,
+-- --     WT_DONNERSTAG_FK  INT,
+-- --     WT_FREITAG_FK     INT,
+--     KLASSE_FK         INT,
+--     SCHULE_FK         INT,
+-- );
+--
+-- ALTER TABLE STUNDENPLAN ADD FOREIGN KEY (KLASSE_FK) REFERENCES FACH(ID);
+-- ALTER TABLE STUNDENPLAN ADD FOREIGN KEY (SCHULE_FK) REFERENCES SCHULE(ID);
+-- -- ALTER TABLE STUNDENPLAN ADD FOREIGN KEY (WT_MONTAG_FK) REFERENCES WOCHENTAG(ID);
+-- -- ALTER TABLE STUNDENPLAN ADD FOREIGN KEY (WT_DIENSTAG_FK) REFERENCES WOCHENTAG(ID);
+-- -- ALTER TABLE STUNDENPLAN ADD FOREIGN KEY (WT_MITTWOCH_FK) REFERENCES WOCHENTAG(ID);
+-- -- ALTER TABLE STUNDENPLAN ADD FOREIGN KEY (WT_DONNERSTAG_FK) REFERENCES WOCHENTAG(ID);
+-- -- ALTER TABLE STUNDENPLAN ADD FOREIGN KEY (WT_FREITAG_FK) REFERENCES WOCHENTAG(ID);
+--
+-- -- INSERT INTO FACH(ID, BEZEICHNUNG) VALUES (1, 'DEUTSCH');
