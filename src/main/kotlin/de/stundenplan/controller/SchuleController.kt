@@ -1,7 +1,7 @@
 package de.stundenplan.controller
 
 import de.stundenplan.controller.dto.SchuleDto
-import de.stundenplan.model.Schulform
+import de.stundenplan.model.enums.Schulform
 import de.stundenplan.service.SchuleService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -20,11 +20,11 @@ class SchuleController(val service: SchuleService) {
     }
 
     @GetMapping("/bySchulId/{schulId}")
-    fun getBySchulId(@PathVariable schulId: String): List<SchuleDto> {
-        return service.findSchulenBySchulId(schulId)
+    fun getBySchulId(@PathVariable schulId: String): SchuleDto {
+        return service.findSchuleBySchulId(schulId)
     }
 
-    @PutMapping
+    @PostMapping
     fun createSchule(@RequestBody schule: SchuleDto): ResponseEntity<String> {
         if (service.exists(schule.schulId)) {
             return ResponseEntity("Schul-ID existiert bereits", HttpStatus.BAD_REQUEST)

@@ -1,6 +1,8 @@
 package de.stundenplan.controller.dto
 
+import de.stundenplan.model.enums.FachBezeichnung
+
 data class FachDto(
-    val bezeichnung: String,
+    val bezeichnung: FachBezeichnung,
 )
 

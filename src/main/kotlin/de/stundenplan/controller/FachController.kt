@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("/fach")
 class FachController(val service: FachService) {
 
-    @GetMapping
-    fun getAllFachList(): List<FachDto> = service.findFachList()
-
-    @PutMapping
-    fun createFach(@RequestBody fachDto: FachDto): ResponseEntity<String> {
-
-        if (service.exists(fachDto.bezeichnung)) {
-            return ResponseEntity("Fach existiert bereits", HttpStatus.BAD_REQUEST)
-        } else {
-            service.create(fachDto)
-            return ResponseEntity("Gespeichert", HttpStatus.OK)
-        }
-    }
+//    @GetMapping
+//    fun getAllFachList(): List<FachDto> = service.findFachList()
+//
+//    @PutMapping
+//    fun createFach(@RequestBody fachDto: FachDto): ResponseEntity<String> {
+//
+//        if (service.exists(fachDto.bezeichnung)) {
+//            return ResponseEntity("Fach existiert bereits", HttpStatus.BAD_REQUEST)
+//        } else {
+//            service.create(fachDto)
+//            return ResponseEntity("Gespeichert", HttpStatus.OK)
+//        }
+//    }
 }
