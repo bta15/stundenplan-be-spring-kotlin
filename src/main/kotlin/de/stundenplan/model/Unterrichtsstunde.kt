@@ -4,7 +4,7 @@ import jakarta.persistence.*
 
 @Entity
 @Table(name = "UNTERRICHT")
-data class Unterricht(
+data class Unterrichtsstunde(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Int?,
@@ -12,10 +12,12 @@ data class Unterricht(
     val anzahlProWoche: Int,
 
     @ManyToOne(cascade = [CascadeType.ALL])
-    @JoinColumn(name = "FACH_FK", nullable = false)
+    @JoinColumn(name = "FACH_FK", nullable = false) //todo in db
     var fach: Fach,
 
+    var klassenstufe: Int,
+
     @ManyToOne
-    @JoinColumn(name = "KLASSE_FK", nullable = false)
-    var klasse: Klasse
+    @JoinColumn(name = "TAG_FK") //todo in db
+    var tag: Tag
 )

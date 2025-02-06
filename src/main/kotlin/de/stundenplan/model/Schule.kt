@@ -1,5 +1,6 @@
 package de.stundenplan.model
 
+import de.stundenplan.model.enums.Schulform
 import jakarta.persistence.*
 
 @Entity
@@ -16,7 +17,10 @@ class Schule(
     @Enumerated(EnumType.STRING)
     var schulform: Schulform,
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = [CascadeType.ALL], mappedBy = "schule")
-    var klassen: List<Klasse>
+//    @OneToMany(fetch = FetchType.LAZY, cascade = [CascadeType.ALL], mappedBy = "schule") //todo brauch ich nicht oder
+//    var klasseList: List<Klasse>,
+
+//    @OneToMany(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])//todo prüfen
+//    var stundenplanList: List<Stundenplan>
 )
 

@@ -14,9 +14,18 @@ class Klasse(
     var bezeichnung: String,
 
     @ManyToOne
-    @JoinColumn(name = "SCHULE_FK", nullable = false)
+    @JoinColumn(name = "SCHULE_FK", nullable = false) //todo in db
     var schule: Schule,
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = [CascadeType.ALL], mappedBy = "klasse")
-    var unterrichtList: List<Unterricht>
+    @ManyToMany(cascade = [CascadeType.ALL]) //todo in db
+    @JoinTable(
+        name = "KLASSE_FACH",
+        joinColumns = [JoinColumn(name = "FACH_FK", referencedColumnName = "id")],
+        inverseJoinColumns = [JoinColumn(name = "KLASSE_FK", referencedColumnName = "id")]
+    )
+    var fachList: List<Fach>,
+
+//    @OneToOne(cascade = [CascadeType.ALL])//todo brauch ich nicht oder
+//    @JoinColumn(name = "stundenplan_id")
+//    var stundenplan: Stundenplan,
 )
