@@ -1,0 +1,13 @@
+### eine Klasse hinzufügen
+POST http://localhost:8082/schule/schule_001/klasse
+Content-Type: application/json
+
+{
+  "bezeichnung": "1b",
+  "klassenstufe": 1,
+  "unterrichtList": []
+}
+
+### alle Klassen einer Schule holen
+GET http://localhost:8082/schule/schule_001/klasse
+Content-Type: application/json

@@ -11,13 +11,13 @@ class Klasse(
 
     var klassenstufe: Int,
 
-    var bezeichnung: String,
+    var bezeichnung: String, //TODO sollte unique sein?!
 
     @ManyToOne
-    @JoinColumn(name = "SCHULE_FK", nullable = false) //todo in db
+    @JoinColumn(name = "SCHULE_FK", nullable = false)
     var schule: Schule,
 
-    @ManyToMany(cascade = [CascadeType.ALL]) //todo in db
+    @ManyToMany(cascade = [CascadeType.ALL])
     @JoinTable(
         name = "KLASSE_FACH",
         joinColumns = [JoinColumn(name = "FACH_FK", referencedColumnName = "id")],

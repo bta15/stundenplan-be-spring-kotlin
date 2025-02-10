@@ -1,0 +1,15 @@
+### stundenplan für schule und klasse erstellen
+PUT http://localhost:8082/stundenplan
+Content-Type: application/json
+
+{
+  "startDate": "2025-02-10",
+  "endDate": "2025-02-10",
+  "idKlasse": 1,
+  "idSchule": 1,
+  "tage": []
+}
+
+### stundenpläne für schule holen
+GET http://localhost:8082/stundenplan/schule/schule_001
+Content-Type: application/json

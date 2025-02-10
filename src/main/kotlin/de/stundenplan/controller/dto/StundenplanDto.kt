@@ -5,6 +5,8 @@ import java.time.LocalDate
 data class StundenplanDto(
     val startDate: LocalDate,
     val endDate: LocalDate,
-    //TODO
+    val idSchule: Int,
+    val idKlasse: Int,
+    val tage: List<TagDto>
 )
 

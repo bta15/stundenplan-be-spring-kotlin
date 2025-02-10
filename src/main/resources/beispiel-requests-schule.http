@@ -1,0 +1,18 @@
+### alle Schulen
+GET http://localhost:8082/schule
+
+### alle Grundschulen
+GET http://localhost:8082/schule/bySchulform/Grundschule
+
+### Schule mit einer Schul-ID
+GET http://localhost:8082/schule/bySchulId/schule_001
+
+### eine Schule hinzufügen
+POST http://localhost:8082/schule
+Content-Type: application/json
+
+{
+  "schulname": "Meine Schule 2",
+  "schulId": "schule_002",
+  "schulform": "GRUNDSCHULE"
+}

@@ -16,7 +16,14 @@ class KlasseService(val klasseRepository: KlasseRepository, val schuleRepository
         val schule = schuleRepository.findBySchulId(schulId)
         val klassenBySchule = klasseRepository.findBySchule(schule).toList()
         val klassenDtoList =
-            klassenBySchule.map { klasse: Klasse -> KlasseDto(klasse.klassenstufe, klasse.bezeichnung, listOf()) }
+            klassenBySchule.map { klasse: Klasse ->
+                KlasseDto(
+                    klasse.id,
+                    klasse.klassenstufe,
+                    klasse.bezeichnung,
+                    listOf()
+                )
+            }
         return klassenDtoList
     }
 

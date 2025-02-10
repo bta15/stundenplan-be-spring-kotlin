@@ -8,17 +8,17 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/schule")
+@RequestMapping("/stundenplan")
 class StundenplanController(val service: StundenplanService) {
 
-//    @GetMapping("/bySchule")
-//    fun getBySchule(@RequestBody schule: SchuleDto): List<StundenplanDto> {
-//        return service.getBySchule(schule)
-//    }
-//
-//    @PutMapping
-//    fun createStundenplan(@RequestBody schule: SchuleDto): ResponseEntity<String> {
-//        service.create(schule)
-//        return ResponseEntity("Gespeichert", HttpStatus.OK)
-//    }
+    @GetMapping("/schule/{schulId}")
+    fun getBySchulId(@PathVariable schulId: String): List<StundenplanDto> {
+        return service.getBySchule(schulId)
+    }
+
+    @PutMapping
+    fun createStundenplan(@RequestBody stundenplanDto: StundenplanDto): ResponseEntity<String> {
+        service.create(stundenplanDto)
+        return ResponseEntity("Gespeichert", HttpStatus.OK)
+    }
 }
